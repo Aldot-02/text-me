@@ -15,11 +15,11 @@ function ChatBox({chat, currentUser, setSendMessage, receiveMessage}) {
   
 
 
-  useEffect(()=> {
-    if(receiveMessage !== null && receiveMessage.chatId === chat._id) {
-      setMessages([...Messages, receiveMessage])
-    }
-  }, [receiveMessage, Messages, chat._id])
+  // useEffect(()=> {
+  //   if(receiveMessage !== null && receiveMessage.chatId === chat._id) {
+  //     setMessages([...Messages, receiveMessage])
+  //   }
+  // }, [receiveMessage, Messages, chat._id])
 
     // fetching data for header
   useEffect(() => {
