@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.top_bar {
+    display: flex;
+    height: 75px;
+    background-color: #202c33;
+    padding: 10px 1rem 10px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dp_img{
+    height:100%;
+}
+.dp_img img{
+    margin-left:14px;
+    margin-right:14px;
+    object-fit:cover;
+    cursor: pointer;
+}
+
+.right {
+    width: 35%;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+.left span {
+    color: #ffffffa6;
+    font-weight: bold;
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 65%;
+  }
+
+.contact_icon {
+    cursor: pointer;
+}
+.contact_icon:hover {
+    color: #fff;
+}
+.three_dots:hover {
+    color: #fff;
+}
+.logout:hover {
+    color: #fff;
+}
+.three_dots  {
+    cursor: pointer;
+}
+.logout {
+    cursor: pointer;
+}
+
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 330px;
+    background: #222d34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: left .3s ease;
+    padding: 1rem;
+  }
+  
+  .popup.active {
+    left: 0;
+  }
+  
+  .popup-content {
+    background: #222d34;
+    height: 100%;
+    width: 100%;
+    padding: 10px 30px 10px 5px;
+    box-sizing: border-box;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  h3 {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    /* padding: 1rem; */
+  }
+
+  
+  .infoInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #aebac1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    color: #ffffff52;
+  }
+
+  .infoInput::placeholder {
+    color: #ffffff52;
+  }
+  
+  .button-update {
+    cursor: pointer;
+    background-color: #61dafb;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 20px;
+    align-self: flex-end;
+    width: 150px;
+  }
+  
+  .profile-pop-up {
+    margin-top: 20px;
+  }
+  .profile-pop-up h4{
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bold;
+  }

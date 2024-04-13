@@ -1,0 +1,128 @@
+.ChatBox-container {
+    /* background: var(--cardColor); */
+    /* border-radius: 1rem; */
+    /* display: grid;
+    grid-template-rows: 75px auto 75px; */
+    height: 100%;
+    width: 100%;
+}
+
+.chat-header {
+    height: 75px;
+    background-color: #202c33;
+    padding: 10px 1rem 10px 3rem;
+    display: flex;
+    /* flex-direction: column; */
+    color: #fff;
+    font-weight: bold;
+}
+
+.chat-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 10px 3rem;
+    overflow:auto;
+    scrollbar-color: #374045 #111b21;
+    scrollbar-width: thin;
+    height: calc(100vh - 150px);
+    background-image: url(./img/Chat-wallpaper.jpg);
+    background-size: cover;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background-color:#111b21;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#374045;
+}
+
+.message {
+    min-width: 60px;
+    background-color: #202c33;
+    font-size: 14px;
+    color: #e9edef;
+    padding: 8px;
+    margin: 5px 0;
+    max-width: 28rem;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start; 
+    border-radius: 4px;
+
+  }
+  
+  .own {
+    align-self: flex-end;
+    min-width: 60px;
+    background-color: #095f42;
+    font-size: 14px;
+    color: #e9edef;
+    padding: 8px;
+    margin: 5px 0;
+    max-width: 28rem;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+
+  }
+
+  
+  
+  .message > span:nth-child(1),
+  .own > span:nth-child(1) {
+    margin-bottom: 5px;
+  }
+  
+  .message > span:nth-child(2),
+  .own > span:nth-child(2) {
+    margin-top: auto;
+    font-size: 11px;
+    color: hsla(0, 0%, 100%, 0.6);
+    align-self: flex-end;
+    margin-left: auto;
+  } 
+
+
+
+/* CHAT SENDING SECTION */
+.chat-sender {
+    background: #202c33;
+    display: grid;
+    grid-template-columns: 30px auto 80px;
+    height: 75px;
+    align-items: center;
+    padding: 10px 3rem 10px 3rem;
+    width: 100%;
+}
+
+.chat-sender>div:nth-of-type(1)
+{
+    padding: 0;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    cursor: pointer
+}
+.button-chat {
+    cursor: pointer;
+    background-color: #61dafb;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+
+}

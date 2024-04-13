@@ -1,0 +1,128 @@
+.Auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    background-color: #111b21;
+  }
+  
+  .a-right {
+    background: #202c33;
+    padding: 1rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 3px #202c33;
+  }
+  
+  .infoForm {
+    background-color: var(--cardColor);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .infoForm h3 {
+    font-size: 20px;
+    text-align: center;
+    color: #374045;
+  }
+  
+  .infoInput {
+    width: 100%;
+    padding: 10px;
+    /* margin-top: 2px; */
+    margin-bottom: 5px;
+    border: 1px solid #202c33;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    background: #374045;
+  }
+  
+  .infoForm div {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .infoForm div > div {
+    flex: 1;
+  }
+  
+  .confirmPassMessage {
+    color: red;
+    font-size: 12px;
+    align-self: flex-end;
+    margin-right: 5px;
+    display: block;
+  }
+  
+  .additionalActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .additionalActions span {
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  
+  .button {
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: #3498db;
+    transition: all .3s;
+  }
+  .button:hover {
+    background-color: #0994f0;
+  }
+  
+  .button:disabled {
+    background-color: #60b7f1cb;
+  }
+  .auth-btn {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .Sign-up-direction {
+    color: #ffffff27;
+  }
+  .Sign-up-direction:hover {
+    color: #0994f0;
+  }
+  
+  
+  .confirmPassError {
+    color: red;
+    font-size: 12px;
+    align-self: flex-end;
+    margin-right: 5px;
+  }
+  
+  
+  .signupText {
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .signupText:hover {
+    color: #0994f0;
+  }
+  
