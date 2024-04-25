@@ -14,7 +14,6 @@ import Header from '../../components/Header/Header'
 
 const Chat = () => {
   const { user } = useSelector((state) => state.authReducer.authData);
-  // console.log(user)
   
 
   const [chats, setChats] = useState([]);
@@ -24,6 +23,10 @@ const Chat = () => {
   const [receiveMessage, setReceiveMessage] = useState(null)
   const socket = useRef()
 
+
+  const handleUserItemClick = (clickedChat) => {
+    setCurrentChat(clickedChat);
+  };
 // sending message to socket server
   useEffect(()=> {
     if(sendMessage !== null)
@@ -70,7 +73,7 @@ const Chat = () => {
     <div className="Chat">
       <div className="Left-side-chat">
         <div className="Chat-container">
-          <Header/>
+          <Header onUserItemClick={handleUserItemClick}/>
           <div className="Chat-list">
             {chats.map((chat)=>(
               <div onClick={()=> setCurrentChat(chat)} className='one-chat'>

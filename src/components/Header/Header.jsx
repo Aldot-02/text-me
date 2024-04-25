@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Header.css';
 import { logout } from '../../actions/AuthAction.js';
 import { useParams } from 'react-router-dom';
 import { uploadImage } from "../../actions/UploadAction.js";
 import { updateUser } from "../../actions/UserAction.js";
+import { getAllUser } from "../../api/UserRequests.js";
+import { MdClose } from "react-icons/md";
+import { userChats, createChat } from '../../api/ChatRequests';
 
-function Header() {
+function Header({ onUserItemClick }) {
   const dispatch = useDispatch();
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
   const { user } = useSelector((state) => state.authReducer.authData);
@@ -18,6 +21,22 @@ function Header() {
 
   const [profileImage, setProfileImage] = useState(null);
   const [isPopupVisible, setPopupVisibility] = useState(false);
+  const [allUsers, setAllUsers] = useState([]);
+  const [isUserListVisible, setUserListVisibility] = useState(false);
+  const [chats, setChats] = useState([]);
+  const [setCurrentChat] = useState(null);
+
+  useEffect(() => {
+    const fetchChats = async () => {
+      try {
+        const { data } = await userChats(user._id);
+        setChats(data);
+      } catch (error) {
+        console.error("Failed to fetch chats:", error);
+      }
+    };
+    fetchChats();
+  }, [user._id]);
 
   const handleLogOut = () => {
     dispatch(logout());
@@ -67,6 +86,51 @@ function Header() {
 
     setPopupVisibility(false);
   };
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await getAllUser();
+        setAllUsers(response);
+      } catch (error) {
+        console.error("Failed to fetch users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+  const handleContactIconClick = () => {
+    setUserListVisibility(!isUserListVisible);
+    // console.log(allUsers);
+  };
+
+  const handleCloseIconClick = () => {
+    setUserListVisibility(false);
+  };
+
+  const handleUserItemClick = async (clickedUser) => {
+    const existingChat = chats.find(
+      (chat) => chat.members.includes(clickedUser._id) && chat.members.includes(user._id)
+    );
+  
+    if (existingChat) {
+      setCurrentChat(existingChat);
+      onUserItemClick(existingChat);
+    } else {
+      try {
+        const newChat = await createChat({ senderId: user._id, receiverId: clickedUser._id });
+        // setChats([...chats, newChat]);
+        setCurrentChat(newChat);
+        onUserItemClick(newChat);
+        window.location.reload()
+      } catch (error) {
+        console.error("Failed to create chat:", error);
+      }
+    }
+    setUserListVisibility(false);
+  };
+  
+
   
 
   return (
@@ -88,7 +152,7 @@ function Header() {
         <span>{formData?.firstname}</span>
       </div>
       <div className="right">
-        <div className="contact_icon">
+        <div className="contact_icon" onClick={handleContactIconClick}>
           <svg viewBox="0 0 24 24" width="24" height="24" className="">
             <path
               fill="#aebac1"
@@ -159,6 +223,18 @@ function Header() {
               </button>
             </form>
           </div>
+        </div>
+      )}
+      {isUserListVisible && (
+        <div className="user_list">
+          <div className="user_list_header">
+            <MdClose onClick={handleCloseIconClick} style={{color: "#ffff", fontSize: "25px", marginRight: "1rem", cursor: "pointer"}}/>
+          </div>
+          {allUsers.map((user) => (
+            <div key={user.id} className="user_list_item"  onClick={() => handleUserItemClick(user)}>
+              {user.firstname} {user.lastname}
+            </div>
+          ))}
         </div>
       )}
     </div>
