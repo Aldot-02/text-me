@@ -25,6 +25,7 @@ function Header({ onUserItemClick }) {
   const [isUserListVisible, setUserListVisibility] = useState(false);
   const [chats, setChats] = useState([]);
   const [setCurrentChat] = useState(null);
+  
 
   useEffect(() => {
     const fetchChats = async () => {
